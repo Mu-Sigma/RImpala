@@ -1,0 +1,11 @@
+target/
+
+#Thumbnails
+._*
+
+.Trashes
+
+# Eclipse stuff
+.classpath
+.project
+.settings/

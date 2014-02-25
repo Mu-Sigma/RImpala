@@ -1,13 +1,8 @@
 #RImpala simple test
 
 library("RImpala")
-rimpala.init()
-rimpala.connect(IP="172.25.1.150")
+rimpala.init(libs="/home/austin/Downloads/impala-jdbc-0.5-2/")
+rimpala.connect(IP="172.25.1.150",principal="noSasl")
 
 rimpala.query() # default query is "show tables"
-
-result = rimpala.query("select * from facts2 limit 10")
-
-li = .jevalArray(result) #made the result a list
-rw = lapply(l, .jevalArray) #now they are rows
-Reduce ("rbind", rw) #bind the rows together
+rimpala.close()

@@ -24,9 +24,9 @@ public class RImpala {
         }
 
         
-        public static boolean connect(String IP, String port){
+        public static boolean connect(String IP, String port, String principal){
         	
-        	CONNECTION_URL= "jdbc:hive2://" + IP + ':' + port + "/;auth=noSasl";
+        	CONNECTION_URL= "jdbc:hive2://" + IP + ':' + port + "/;" + principal;
         	
         	try {
         		Class.forName(JDBC_DRIVER_NAME); 

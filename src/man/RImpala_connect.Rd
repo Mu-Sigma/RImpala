@@ -9,11 +9,16 @@
 The IP of the machine to which the connection needs to be established. Default value is localhost
 }
 \item{port}{
-The port on the machine where the Impala daemon is running.Default value is 21050
+The port on the machine where the Impala daemon is running. Default value is 21050
+}
+\item{principal}{
+The principal to use if you require Kerberos authentication.The principal must be the same user principal you used when starting Impala. For example: "impala/myhost.example.com@H2.EXAMPLE.COM". Default value is "noSasl"
+}
 }
 }
 \usage{
 rimpala.connect(IP="localhost",port="21050")
+rimpala.connect(IP="localhost",port="21050",principal="impala/myhost.example.com@H2.EXAMPLE.COM")
 }
 
 \value{

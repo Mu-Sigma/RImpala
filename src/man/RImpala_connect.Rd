@@ -16,8 +16,7 @@ The principal to use if you require Kerberos authentication.The principal must b
 }
 }
 \usage{
-rimpala.connect(IP="localhost",port="21050")
-rimpala.connect(IP="localhost",port="21050",principal="impala/myhost.example.com@H2.EXAMPLE.COM")
+rimpala.connect(IP="localhost",port="21050",principal="noSasl")
 }
 
 \value{
@@ -37,6 +36,8 @@ Sachin Sudarshana \email{sachin.sudarshana@mu-sigma.com}}
 library("RImpala")
 rimpala.init()
 rimpala.connect(IP="127.0.0.1",port="21050")
+rimpala.close()
+rimpala.connect(IP="localhost",port="21050",principal="impala/myhost.example.com@H2.EXAMPLE.COM")
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

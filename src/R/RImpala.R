@@ -36,7 +36,12 @@ rimpala.query <-function (Q="show tables") {
   colNames = result[1,]
   colTypes = result[2,]
   
-  onlyData = data.frame(result[3:nrow(result),],stringsAsFactors=FALSE)
+  if(nrow(result) > 3){
+    onlyData = data.frame(result[3:nrow(result),],stringsAsFactors=FALSE)
+  } else {
+    onlyData = data.frame(t(result[3,]),stringsAsFactors=FALSE)    
+  }
+
   colnames(onlyData)=colNames
   
   colNum.int = grep("int", colTypes,ignore.case=TRUE)

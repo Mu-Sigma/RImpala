@@ -1,9 +1,9 @@
 Package: RImpala
-Version: 0.1.3
+Version: 0.1.4
 Date: 2013-12-03
 Title: RImpala
 Author: Austin Chungath Vincent, Sachin Sudarshana, Vikas Raguttahalli
-Maintainer: Austin Chungath Vincent <austin.cv@mu-sigma.com>
+Maintainer: Austin Chungath Vincent <austincv@gmail.com>
 Contact: Vikas Raguttahalli <vikas.r@mu-sigma.com>, Sachin Sudarshana <sachin.sudarshana@gmail.com>
 Description: A package to connect and run queries on Cloudera Impala (thanks to Mu Sigma)
 Depends: R (>= 2.7.0), rJava (>= 0.5-0)

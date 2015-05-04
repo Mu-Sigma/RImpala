@@ -17,6 +17,7 @@ Changes the database to the specified database and prints "Database changed to \
 }
 
 \author{
+Vijay Raajaa \email{vijay.raajaa@mu-sigma.com},\cr
 Austin Chungath Vincent \email{austin.cv@mu-sigma.com},\cr
 Vikas Raguttahalli \email{vikas.r@mu-sigma.com},\cr
 Sachin Sudarshana \email{sachin.sudarshana@mu-sigma.com}}

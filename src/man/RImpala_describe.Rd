@@ -17,6 +17,7 @@ Returns an dataframe that contains the details of the table as displayed by the 
 }
 
 \author{
+Vijay Raajaa \email{vijay.raajaa@mu-sigma.com},\cr
 Austin Chungath Vincent \email{austin.cv@mu-sigma.com},\cr
 Vikas Raguttahalli \email{vikas.r@mu-sigma.com},\cr
 Sachin Sudarshana \email{sachin.sudarshana@mu-sigma.com}}

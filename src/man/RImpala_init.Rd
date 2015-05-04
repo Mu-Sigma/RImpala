@@ -26,6 +26,7 @@ This should be the first function that should be executed once the RImpala packa
 }
 
 \author{
+Vijay Raajaa \email{vijay.raajaa@mu-sigma.com},\cr
 Austin Chungath Vincent \email{austin.cv@mu-sigma.com},\cr
 Vikas Raguttahalli \email{vikas.r@mu-sigma.com},\cr
 Sachin Sudarshana \email{sachin.sudarshana@mu-sigma.com}}

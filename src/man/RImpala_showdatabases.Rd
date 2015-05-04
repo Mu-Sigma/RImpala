@@ -15,6 +15,7 @@ The list of databases present in Hive's metastore is returned into a dataframe.
 }
 
 \author{
+Vijay Raajaa \email{vijay.raajaa@mu-sigma.com},\cr
 Austin Chungath Vincent \email{austin.cv@mu-sigma.com},\cr
 Vikas Raguttahalli \email{vikas.r@mu-sigma.com},\cr
 Sachin Sudarshana \email{sachin.sudarshana@mu-sigma.com}}

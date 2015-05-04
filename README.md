@@ -17,7 +17,7 @@ To use this package you must also have access to a Hadoop cluster running Cloude
 * We will use this location in <code>rimpala.init()</code>
 	
 ###Install RImpala
-1. Compressed package: <code>R CMD INSTALL RImpala-0.1.1.tar.gz</code>
+1. Compressed package: <code>R CMD INSTALL RImpala-0.1.5.tar.gz</code>
 2. Source code: <code>R CMD INSTALL ./RImpala</code>
 ##Loading RImpala and connecting to Impala
 

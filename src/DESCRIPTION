@@ -1,11 +1,11 @@
 Package: RImpala
-Version: 0.1.4
-Date: 2013-12-03
-Title: RImpala
-Author: Austin Chungath Vincent, Sachin Sudarshana, Vikas Raguttahalli
-Maintainer: Austin Chungath Vincent <austincv@gmail.com>
-Contact: Vikas Raguttahalli <vikas.r@mu-sigma.com>, Sachin Sudarshana <sachin.sudarshana@gmail.com>
-Description: A package to connect and run queries on Cloudera Impala (thanks to Mu Sigma)
+Version: 0.1.5
+Date: 2014-10-12
+Title: R and Impala
+Author: Vijay Raajaa, Austin Chungath Vincent, Sachin Sudarshana, Vikas Raguttahalli
+Maintainer: Vijay Raajaa <vijay.raajaa@mu-sigma.com>
+Contact: Austin Chungath Vincent <austincv@gmail.com>,Vikas Raguttahalli <vikas.r@mu-sigma.com>, Sachin Sudarshana <sachin.sudarshana@gmail.com>
+Description: RImpala facilitates the connection and execution of distributed queries using Cloudera Impala, which is a massively parallel processing (MPP) SQL query engine that runs natively in Apache Hadoop. Impala supports jdbc integration which RImpala utilizes to establish the connection between R and Impala. Thanks to Mu Sigma for their continued support throughout the development of the package.
 Depends: R (>= 2.7.0), rJava (>= 0.5-0)
 SystemRequirements: Java (>= 1.5)
 License: GPL-3

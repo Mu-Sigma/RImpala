@@ -1,15 +1,15 @@
 .rimpalaEnv <- new.env()
 rimpala.init <- function(impala_home=NULL, libs ="/usr/lib/impala/lib") {
-
-  if(file.exists(libs)==TRUE)
   
+  if(file.exists(libs)==TRUE)
+    
   {
     rimpala.CP <- c(list.files(libs, full.names=TRUE, pattern="jar$", recursive=FALSE)
-                  , list.files(paste(system.file(package="RImpala"),"java", sep=.Platform$file.sep ),pattern="jar$", full.names=TRUE))
-  
-  assign("classpath", rimpala.CP, envir =.rimpalaEnv )
-  .jinit(classpath=rimpala.CP)
-  return ("Classpath added successfully")
+                    , list.files(paste(system.file(package="RImpala"),"java", sep=.Platform$file.sep ),pattern="jar$", full.names=TRUE))
+    
+    assign("classpath", rimpala.CP, envir =.rimpalaEnv )
+    .jinit(classpath=rimpala.CP)
+    return ("Classpath added successfully")
   }
   else
   {
@@ -32,45 +32,42 @@ rimpala.query <-function (Q="show tables") {
   li = .jevalArray(arr) #made the result a list
   rw = lapply(li, .jevalArray) #now they are rows
   
-  result = Reduce ("rbind", rw) #bind the rows together
+  result = Reduce ("rbind", rw, init=NULL) #bind the rows together
   colNames = result[1,]
-  colTypes = result[2,]
   
-  if(nrow(result) > 3){
-    onlyData = data.frame(result[3:nrow(result),],stringsAsFactors=FALSE)
-  } else {
-    onlyData = data.frame(t(result[3,]),stringsAsFactors=FALSE)    
-  }
-
-  colnames(onlyData)=colNames
-  
-  colNum.int = grep("int", colTypes,ignore.case=TRUE)
-  if(length(colNum.int>0))
-  {
-    for(i in colNum.int)
+  if(nrow(result)<3){
+    print("Query Returned <0 Rows>")
+  }else{
+    onlyData = data.frame(result[3:nrow(result),],stringsAsFactors=FALSE,row.names=NULL)
+    colnames(onlyData)=colNames
+    colTypes = result[2,]
+    colNum.int = grep("int", colTypes,ignore.case=TRUE)
+    if(length(colNum.int>0))
     {
-      onlyData[[i]] = as.integer(onlyData[[i]])
+      for(i in colNum.int)
+      {
+        onlyData[[i]] = as.integer(onlyData[[i]])
+      }
     }
-  }
-  
-  colNum.double = grep("double", colTypes, ignore.case=TRUE)
-  colNum.float = grep("float", colTypes, ignore.case=TRUE)
-  colNum.double=c(colNum.double, colNum.float)
-  if(length(colNum.double>0))
-  {
-    for(i in colNum.double)
+    
+    colNum.double = grep("double", colTypes, ignore.case=TRUE)
+    colNum.float = grep("float", colTypes, ignore.case=TRUE)
+    colNum.double=c(colNum.double, colNum.float)
+    if(length(colNum.double>0))
     {
-      onlyData[[i]] = as.double(onlyData[[i]])
+      for(i in colNum.double)
+      {
+        onlyData[[i]] = as.double(onlyData[[i]])
+      }
     }
+    row.names(onlyData)=NULL
+    return (onlyData)
   }
-
-  return (onlyData)
-
 }
 
 rimpala.connect <- function(IP="localhost",port="21050",principal="noSasl"){
   impalaObj = .jnew("com.musigma.ird.bigdata.RImpala")
-
+  
   #building the connection string
   #concat auth= or principal= depending on the user input to argument principal
   if(principal=="noSasl")
@@ -184,7 +181,6 @@ rimpala.describe <-function(table)
   }
   return(onlyData)
 }
-
 
 
 

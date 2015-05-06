@@ -46,6 +46,6 @@ Here are links to more information on Cloudera Impala:
 - Java (>= 1.5)
 - R (>= 2.7.0)
 - rJava (>= 0.5-0)
-- Impala [JDBC driver jars](https://downloads.cloudera.com/impala-jdbc/impala-jdbc-0.5-2.zip)
+- Impala [JDBC driver jars](impala-jdbc-cdh5.zip)
 
 

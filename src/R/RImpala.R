@@ -18,9 +18,9 @@ rimpala.init <- function(impala_home=NULL, libs ="/usr/lib/impala/lib") {
 }
 
 
-rimpala.query <-function (Q="show tables") {
+rimpala.query <-function (Q="show tables",isDDL="false") {
   impalaObj = .jnew("com.musigma.ird.bigdata.RImpala")
-  rs = impalaObj$query(Q)
+  rs = impalaObj$query(Q,isDDL)
   
   if(is.jnull(rs))
   {
@@ -36,7 +36,13 @@ rimpala.query <-function (Q="show tables") {
   colNames = result[1,]
   
   if(nrow(result)<3){
-    print("Query Returned <0 Rows>")
+    if(nrow(result)==1 && result[[1]] == "true")
+    {
+      print("Query Executed successfully")
+    }
+    else{
+      print("Query Returned <0 Rows>")
+    }
   }else{
     onlyData = data.frame(result[3:nrow(result),],stringsAsFactors=FALSE,row.names=NULL)
     colnames(onlyData)=colNames

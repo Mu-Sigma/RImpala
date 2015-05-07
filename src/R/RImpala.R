@@ -18,9 +18,10 @@ rimpala.init <- function(impala_home=NULL, libs ="/usr/lib/impala/lib") {
 }
 
 
-rimpala.query <-function (Q="show tables",isDDL="false") {
+rimpala.query <-function (Q="show tables",isDDL="false",fetchSize="10000") {
+  .jinit(parameters="-Xmx10240m")
   impalaObj = .jnew("com.musigma.ird.bigdata.RImpala")
-  rs = impalaObj$query(Q,isDDL)
+  rs = impalaObj$query(Q,isDDL,fetchSize)
   
   if(is.jnull(rs))
   {

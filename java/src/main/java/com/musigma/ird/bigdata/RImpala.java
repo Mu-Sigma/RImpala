@@ -31,6 +31,7 @@ public class RImpala {
 		try {
 			Class.forName(JDBC_DRIVER_NAME);
 			con = DriverManager.getConnection(CONNECTION_URL);
+			con.setAutoCommit(false);
 			return true;
 
 		} catch (SQLException e) {
@@ -278,7 +279,7 @@ public class RImpala {
 
 	}
 
-	public static List < String[] > query(String Q, String isDDL) throws SQLException {
+	public static List < String[] > query(String Q, String isDDL, String fetchSize) throws SQLException {
 
 		ResultSet rs = null;
 
@@ -322,6 +323,8 @@ public class RImpala {
 			try {
 
 				Statement stmt = con.createStatement();
+             	    		
+				stmt.setFetchSize(Integer.parseInt(fetchSize));
 
 				rs = stmt.executeQuery(Q);
 

@@ -18,7 +18,7 @@ Set the Number of rows to be retrieved with each Impala roundtrip call (Default 
 
 }
 \usage{
-rimpala.query(Q="show tables",isDDL="false",fetchSize="100")
+rimpala.query(Q="show tables",isDDL="false",fetchSize="10000")
 }
 \value{
 The result of the Query is returned into a dataframe if the Query is valid and does not have any errors.

@@ -17,7 +17,6 @@ rimpala.init <- function(impala_home=NULL, libs ="/usr/lib/impala/lib") {
   }
 }
 
-s
 rimpala.query <-function (Q="show tables",isDDL="false",fetchSize="10000") {
   .jinit(parameters="-Xmx10240m")
   impalaObj = .jnew("com.musigma.ird.bigdata.RImpala")

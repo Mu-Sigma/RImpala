@@ -71,7 +71,7 @@ rimpala.query <-function (Q="show tables",isDDL="false",fetchSize="10000") {
   }
 }
 
-rimpala.connect <- function(IP="localhost",port="21050",principal="noSasl",user="none",password="none"){
+rimpala.connect <- function(IP="localhost",port="21050",principal="noSasl",user="none",password="none",db="default"){
   impalaObj = .jnew("com.musigma.ird.bigdata.RImpala")
   
   #building the connection string
@@ -82,7 +82,7 @@ rimpala.connect <- function(IP="localhost",port="21050",principal="noSasl",user=
   }
   else if(principal=="noSasl" & user!="none")
   {
-    principal = paste("user=",user,";","password=",password,sep="")
+    principal = paste(db,";","user=",user,";","password=",password,sep="")
   } 
   else  {
     principal = paste("principal=",principal,sep="");

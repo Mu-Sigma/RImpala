@@ -356,8 +356,8 @@ public class RImpala {
 					String[] dynamicRow = new String[columnCount];
 
 					for (int i = 1; i <= columnCount; i++) {
-
-						dynamicRow[i - 1] = rs.getObject(i).toString();
+						Object o = rs.getObject(i);
+						dynamicRow[i - 1] = o == null ? null : o.toString();
 					}
 					dynamicResult.add(dynamicRow);
 
